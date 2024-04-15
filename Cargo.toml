@@ -1,42 +1,33 @@
 [package]
-name = "rust-template"
+name = "dip721-rs"
 version = "0.1.0"
 authors = ["Christian Visintin <christian.visintin@veeso.dev>"]
 edition = "2021"
-categories = ["network-programming"]
-description = ""
-homepage = "https://github.com/veeso-dev/rust-template"
+categories = ["wasm", "web-programming"]
+description = "A rust library implementing the DIP721 NFT standard types for Internet Computer"
+homepage = "https://github.com/veeso/dip721-rs"
 include = ["src/**/*", "LICENSE", "README.md", "CHANGELOG.md"]
-keywords = []
+keywords = ["interet-computer", "nft", "ic", "dfinity", "dip721"]
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/veeso-dev/rust-template"
+repository = "https://github.com/veeso/dip721-rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[[bin]]
-name = "rust-template"
-path = "src/main.rs"
+[lib]
+name = "dip721_rs"
+path = "src/lib.rs"
+
+[features]
+default = ["ic-stable-structures"]
+ic-stable-structures = ["dep:ic-stable-structures"]
 
 [dependencies]
-anyhow = "^1"
-envy = "^0.4"
-lazy_static = "^1.4"
-serde = { version = "^1.0.0", features = ["derive"] }
-thiserror = "^1.0"
-
-#actix
-actix-multipart = "^0.6"
-actix-web = "^4"
-
-#async stuff
-reqwest = { version = "^0.11", features = ["rustls-tls"] }
-serde_json = "^1.0.0"
-serde_with = "^3"
-tokio = { version = "^1", features = ["io-std", "net", "fs"] }
-tracing = "^0.1"
-tracing-subscriber = "^0.3"
+async-trait = "0.1"
+candid = "0.10"
+ic-cdk = "0.12"
+ic-stable-structures = { version = "0.6", optional = true }
+serde = "^1"
+thiserror = "^1"
 
 [dev-dependencies]
-actix-rt = "^2"
-env_logger = "^0.10"
 pretty_assertions = "^1"
