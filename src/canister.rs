@@ -22,7 +22,7 @@ pub struct Stats {
 }
 
 /// Supported interfaces for a DIP721 canister
-#[derive(CandidType, PartialEq, Eq, Debug, Deserialize)]
+#[derive(CandidType, PartialEq, Eq, Debug, Deserialize, Clone, Copy)]
 pub enum SupportedInterface {
     Approval,
     Burn,
