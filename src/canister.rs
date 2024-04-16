@@ -2,7 +2,7 @@ use candid::{CandidType, Deserialize, Nat, Principal};
 use thiserror::Error;
 
 /// Metadata for a DIP721 canister
-#[derive(CandidType, Default, Deserialize)]
+#[derive(CandidType, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Metadata {
     pub created_at: u64,
     pub custodians: Vec<Principal>,
@@ -13,7 +13,7 @@ pub struct Metadata {
 }
 
 /// Canister stats
-#[derive(CandidType)]
+#[derive(CandidType, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Stats {
     pub cycles: Nat,
     pub total_supply: Nat,

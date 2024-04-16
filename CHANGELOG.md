@@ -1,10 +1,17 @@
 # Changelog
 
 - [Changelog](#changelog)
+  - [0.1.2](#012)
   - [0.1.1](#011)
   - [0.1.0](#010)
 
 ---
+
+## 0.1.2
+
+Released on 16/04/2024
+
+- fix: Missing `Deserialize` for `Stats`
 
 ## 0.1.1
 
