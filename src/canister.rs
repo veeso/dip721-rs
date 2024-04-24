@@ -1,8 +1,9 @@
 use candid::{CandidType, Deserialize, Nat, Principal};
+use serde::Serialize;
 use thiserror::Error;
 
 /// Metadata for a DIP721 canister
-#[derive(CandidType, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(CandidType, Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Metadata {
     pub created_at: u64,
     pub custodians: Vec<Principal>,
@@ -13,7 +14,7 @@ pub struct Metadata {
 }
 
 /// Canister stats
-#[derive(CandidType, Deserialize, Debug, Clone, PartialEq, Eq)]
+#[derive(CandidType, Serialize, Deserialize, Debug, Clone, PartialEq, Eq)]
 pub struct Stats {
     pub cycles: Nat,
     pub total_supply: Nat,
@@ -22,7 +23,7 @@ pub struct Stats {
 }
 
 /// Supported interfaces for a DIP721 canister
-#[derive(CandidType, PartialEq, Eq, Debug, Deserialize, Clone, Copy)]
+#[derive(CandidType, Serialize, PartialEq, Eq, Debug, Deserialize, Clone, Copy)]
 pub enum SupportedInterface {
     Approval,
     Burn,
@@ -31,7 +32,7 @@ pub enum SupportedInterface {
 }
 
 /// Represent an NFT error to return via API
-#[derive(CandidType, Debug, Deserialize, Clone, PartialEq, Eq, Error)]
+#[derive(CandidType, Debug, Serialize, Deserialize, Clone, PartialEq, Eq, Error)]
 pub enum NftError {
     #[error("self transfer is not allowed")]
     SelfTransfer,
